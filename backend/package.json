@@ -1,0 +1,31 @@
+{
+  "name": "digital-heroes-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^7.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.2",
+    "multer": "^1.4.5-lts.2",
+    "stripe": "^16.12.0"
+  },
+  "description": "1. `npm install`  2. `.env.example` -> `.env` bharein  3. Supabase me `src/db/schema.sql` run + bucket `proofs` 4. `npm run dev`  5. Stripe: `stripe listen --forward-to localhost:5000/api/webhooks/stripe`",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
