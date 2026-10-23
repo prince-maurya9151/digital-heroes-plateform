@@ -5,7 +5,9 @@ alter table profiles drop constraint if exists profiles_charity_fk;
 alter table profiles add constraint profiles_charity_fk
   foreign key (charity_id) references charities(id) on delete set null;
 
+
 alter table subscriptions drop constraint if exists subscriptions_status_check;
+
 alter table subscriptions add constraint subscriptions_status_check
   check (status in ('active', 'lapsed', 'cancelled'));
 

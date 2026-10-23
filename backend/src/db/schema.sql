@@ -36,7 +36,7 @@ create table scores (
   created_at timestamptz default now(),
   unique (user_id, played_on)           -- one score per date
 );
-create index on scores (user_id, played_on desc);
+create index on scores (user_id, played_on desc, created_at desc);
 
 create table draws (
   id uuid primary key default gen_random_uuid(),
@@ -67,7 +67,7 @@ create table winners (
   user_id uuid references profiles(id) on delete cascade,
   match_count int check (match_count between 3 and 5),
   prize numeric not null,
-  proof_url text,                       -- storage path inside the private "proofs" bucket
+  proof_url text,                  
   verify_status text default 'pending' check (verify_status in ('pending', 'approved', 'rejected')),
   payment_status text default 'pending' check (payment_status in ('pending', 'paid')),
   paid_at timestamptz,
